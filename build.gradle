@@ -26,7 +26,7 @@ assignments {
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
-
+    compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.1")
     /*
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.8.9'
     compile group: 'org.hibernate', name: 'hibernate-validator', version: '5.3.5.Final'

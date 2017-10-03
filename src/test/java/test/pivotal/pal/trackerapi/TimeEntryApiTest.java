@@ -14,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.time.LocalDate;
 import java.util.Collection;
 
 import static com.jayway.jsonpath.JsonPath.parse;
@@ -40,7 +41,7 @@ public class TimeEntryApiTest {
         assertThat(createJson.read("$.id", Long.class)).isGreaterThan(0);
         assertThat(createJson.read("$.projectId", Long.class)).isEqualTo(123L);
         assertThat(createJson.read("$.userId", Long.class)).isEqualTo(456L);
-        assertThat(createJson.read("$.date", String.class)).isEqualTo("today");
+        assertThat(createJson.read("$.date", String.class)).isEqualTo(LocalDate.now().toString());
         assertThat(createJson.read("$.hours", Long.class)).isEqualTo(8);
     }
 
@@ -76,7 +77,7 @@ public class TimeEntryApiTest {
         assertThat(readJson.read("$.id", Long.class)).isEqualTo(id);
         assertThat(readJson.read("$.projectId", Long.class)).isEqualTo(123L);
         assertThat(readJson.read("$.userId", Long.class)).isEqualTo(456L);
-        assertThat(readJson.read("$.date", String.class)).isEqualTo("today");
+        assertThat(readJson.read("$.date", String.class)).isEqualTo(LocalDate.now().toString());
         assertThat(readJson.read("$.hours", Long.class)).isEqualTo(8);
     }
 
@@ -95,7 +96,7 @@ public class TimeEntryApiTest {
         assertThat(updateJson.read("$.id", Long.class)).isEqualTo(id);
         assertThat(updateJson.read("$.projectId", Long.class)).isEqualTo(2L);
         assertThat(updateJson.read("$.userId", Long.class)).isEqualTo(3L);
-        assertThat(updateJson.read("$.date", String.class)).isEqualTo("tomorrow");
+        assertThat(updateJson.read("$.date", String.class)).isEqualTo(LocalDate.now().minusDays(1).toString());
         assertThat(updateJson.read("$.hours", Long.class)).isEqualTo(9);
     }
 
