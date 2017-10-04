@@ -56,7 +56,7 @@ bootRun.environment([
         "SPRING_DATASOURCE_URL": developmentDbUrl
 ])
 
-def testDbUrl = "jdbc:mysql://localhost:3306/tracker_test?user=root&password=Kroger1234&useSSL=false&useTimezone=true&serverTimezone=UTC&useLegacyDatetimeCode=false"
+def testDbUrl = "jdbc:mysql://localhost:3306/tracker_test?user=tracker&useSSL=false&useTimezone=true&serverTimezone=UTC&useLegacyDatetimeCode=false"
 test.environment([
         "WELCOME_MESSAGE": "Hello from test",
         "SPRING_DATASOURCE_URL": testDbUrl
