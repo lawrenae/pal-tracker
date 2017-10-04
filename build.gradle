@@ -71,4 +71,6 @@ flyway {
 
 task testMigrate(type: FlywayMigrateTask) {
     url = testDbUrl
+    user = "tracker"
+    password = ""
 }
