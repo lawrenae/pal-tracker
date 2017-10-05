@@ -1,11 +1,14 @@
 package test.pivotal.pal.trackerapi;
 
 import io.pivotal.pal.tracker.PalTrackerApplication;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.embedded.LocalServerPort;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -17,6 +20,11 @@ public class WelcomeApiTest {
 
     @Autowired
     private TestRestTemplate restTemplate;
+
+    @Before
+    public void setUp() throws Exception {
+        restTemplate = restTemplate.withBasicAuth("user", "password");
+    }
 
     @Test
     public void exampleTest() {

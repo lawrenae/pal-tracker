@@ -3,3 +3,5 @@ applications:
 - name: pal-tracker
   path: build/libs/pal-tracker.jar
   host: al-pal-tracker
+  env:
+    SECURITY_FORCE_HTTPS: true
